@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
-0  },
+  },
   "keywords": ["speedtest", "express", "ejs", "fast.com", "network", "測定"],
   "author": "Nanashinon",
   "license": "MIT",
