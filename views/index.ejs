@@ -1,0 +1,23 @@
+<button onclick="startTest()">測定開始</button>
+<div class="progress-bar"><div id="progress" class="progress-fill"></div></div>
+<div id="result">準備中...</div>
+
+<script>
+  async function startTest() {
+    const res = await fetch("/api/new-token-prg", { method: "POST" });
+    const { token } = await res.json();
+    document.getElementById("result").innerText = `トークン: ${token}\n測定中...`;
+
+    const progress = document.getElementById("progress");
+    const interval = setInterval(async () => {
+      const prg = await fetch(`/api/prg/${token}`).then(r => r.json());
+      document.getElementById("result").innerHTML = `
+        トークン: ${token}<br>
+        状態: ${prg.text}<br>
+        進捗: ${(prg.end * 100).toFixed(1)}%
+      `;
+      progress.style.width = `${prg.end * 100}%`;
+      if (prg.end >= 1) clearInterval(interval);
+    }, 1000);
+  }
+</script>
