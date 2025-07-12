@@ -1,0 +1,21 @@
+{
+  "name": "speedtest-app",
+  "version": "1.0.0",
+  "description": "スピードテストくん - Fast.comベースの測定アプリ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["speedtest", "express", "ejs", "fast.com", "network", "測定"],
+  "author": "Nanashinon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "fast-speedtest-api": "^1.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
